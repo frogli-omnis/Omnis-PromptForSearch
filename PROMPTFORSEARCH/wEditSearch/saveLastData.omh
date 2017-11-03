@@ -1,0 +1,2 @@
+Calculate iLastAction as row(iSearchFieldName,iOldMode,iSearchCalculation,iOldComparison)
+Calculate iNewLine as kFalse

@@ -1,0 +1,13 @@
+Do iSearchList.$clear()
+
+Calculate iSearchCalculation as ''
+Calculate iSearchFieldName as ''
+Calculate iSearchMode as ''
+
+For lNum from 1 to iSearchList.$linemax step 1
+	Do iSearchList.$add()
+End For
+
+Do $cwind.$redraw()
+
+Calculate iClassChanged as kTrue

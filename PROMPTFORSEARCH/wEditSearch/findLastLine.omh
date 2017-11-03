@@ -1,0 +1,9 @@
+;  return the index of the last line in the search which contains search data
+For lNum from iSearchList.$linecount to 1 step -1
+	Calculate lRow as row(iSearchList.[lNum].iSearchFieldName,iSearchList.[lNum].iSearchMode,iSearchList.[lNum].iSearchCalculation)
+	If not(lRow.C1=''&lRow.C2=''&lRow.C3='')
+		Break to end of loop
+	End If
+End For
+
+Quit method lNum

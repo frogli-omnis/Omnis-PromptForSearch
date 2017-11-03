@@ -1,0 +1,31 @@
+;  sets the visibility of objects dependant on the current mode
+Switch pNum
+	Case 0
+		Do $cwind.$objs.CompFieldText.$visible.$assign(kTrue)
+		Do $cwind.$objs.ComparisonField.$visible.$assign(kTrue)
+		Do $cwind.$objs.ComparisonGroupBox.$visible.$assign(kTrue)
+		Do $cwind.$objs.ComparisonValue.$visible.$assign(kTrue)
+		Do $cwind.$objs.CompValText.$visible.$assign(kTrue)
+		Break to end of switch
+	Case 1
+		Do $cwind.$objs.CompFieldText.$visible.$assign(kFalse)
+		Do $cwind.$objs.ComparisonField.$visible.$assign(kFalse)
+		Do $cwind.$objs.ComparisonGroupBox.$visible.$assign(kFalse)
+		Do $cwind.$objs.ComparisonValue.$visible.$assign(kTrue)
+		Do $cwind.$objs.CompValText.$visible.$assign(kTrue)
+		Break to end of switch
+	Case 2
+		Do $cwind.$objs.CompFieldText.$visible.$assign(kFalse)
+		Do $cwind.$objs.ComparisonField.$visible.$assign(kFalse)
+		Do $cwind.$objs.ComparisonGroupBox.$visible.$assign(kFalse)
+		Do $cwind.$objs.ComparisonValue.$visible.$assign(kFalse)
+		Do $cwind.$objs.CompValText.$visible.$assign(kFalse)
+		Break to end of switch
+	Case 3
+		Do $cwind.$objs.CompFieldText.$visible.$assign(kFalse)
+		Do $cwind.$objs.ComparisonField.$visible.$assign(kFalse)
+		Do $cwind.$objs.ComparisonGroupBox.$visible.$assign(kFalse)
+		Do $cwind.$objs.ComparisonValue.$visible.$assign(kFalse)
+		Do $cwind.$objs.CompValText.$visible.$assign(kFalse)
+		Break to end of switch
+End Switch

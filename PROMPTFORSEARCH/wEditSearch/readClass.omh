@@ -1,0 +1,29 @@
+Set reference lSearchObjRef to iSearchRef.$objs.$first()
+While lSearchObjRef
+	Switch lSearchObjRef.$linetype
+		Case kSLbeg
+			Calculate lLineType as 'BEG'
+		Case kSLcalc
+			Calculate lLineType as 'CAL'
+		Case kSLcon
+			Calculate lLineType as 'CON'
+		Case kSLnull
+			Calculate lLineType as 'NULL'
+		Case kSLnotnull
+			Calculate lLineType as 'NNULL'
+		Case kSLnone
+			Calculate lLineType as ''
+		Default
+			Calculate lLineType as lSearchObjRef.$linetype
+	End Switch
+	Calculate lDataName as lSearchObjRef.$dataname
+	Calculate lText as lSearchObjRef.$text
+	Do iSearchList.[lSearchObjRef.$name].$assigncols(lDataName,lLineType,lText)
+	
+	Set reference lSearchObjRef to iSearchRef.$objs.$next(lSearchObjRef)
+End While
+
+Do iSearchList.$first()
+Do iSearchList.$loadcols()
+
+Do $cwind.$redraw()

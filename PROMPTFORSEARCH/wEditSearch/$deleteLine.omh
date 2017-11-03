@@ -1,0 +1,4 @@
+Do iSearchList.$remove(iSearchList.$line)
+Do method getLineValues
+
+Calculate iClassChanged as kTrue

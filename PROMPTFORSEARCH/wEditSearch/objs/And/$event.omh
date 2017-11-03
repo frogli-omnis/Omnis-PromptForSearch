@@ -1,0 +1,12 @@
+On evClick     ;; Event Parameters - pRow ( Itemreference )
+	Do method setDisplay (iMode)
+	
+	Do iSearchList.$loadcols()
+	Do method saveLastData
+	
+	Calculate iOldMode as iMode
+	
+	Do iSearchList.$assigncols('','AND','')
+	Do $cwind.$redraw()
+	
+	Calculate iClassChanged as kTrue

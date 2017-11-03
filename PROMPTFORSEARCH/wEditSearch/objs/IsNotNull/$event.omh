@@ -1,0 +1,13 @@
+On evClick     ;; Event Parameters - pRow ( Itemreference )
+	Do iSearchList.$loadcols()
+	Do method saveLastData
+	
+	Calculate iOldComparison as iComparison
+	
+	Do method getComparisonValue (iComparison,lCurComparison)
+	
+	Do iSearchList.$assigncols(,lCurComparison,'')
+	Do iSearchList.$loadcols()
+	Do $cwind.$redraw()
+	
+	Calculate iClassChanged as kTrue

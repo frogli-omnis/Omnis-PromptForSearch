@@ -1,0 +1,17 @@
+If iSearchList.$linecount=50
+	Calculate lRow as row(iSearchList.50.iSearchFieldName,iSearchList.50.iSearchMode,iSearchList.50.iSearchCalculation)
+	If lRow.C1=''&lRow.C2=''&lRow.C3=''
+		Do iSearchList.$remove(iSearchList.50) Returns #F
+	Else
+		OK message OMNIS Studio {Inserting another line would lose the last line}
+		Quit method
+	End If
+End If
+
+Calculate iSearchCalculation as ''
+Calculate iSearchFieldName as ''
+Calculate iSearchMode as ''
+Do iSearchList.$addbefore(iSearchList.$line)
+Do $cwind.$redraw()
+
+Calculate iClassChanged as kTrue

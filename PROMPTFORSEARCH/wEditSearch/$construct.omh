@@ -1,0 +1,17 @@
+Calculate iSearchName as pSearchName
+Set reference iLibRef to pLibRef
+
+Do $cwind.$title.$assign(con('Search ',iLibRef.$name(),'.',iSearchName))
+
+Do iSearchList.$define(iSearchFieldName,iSearchMode,iSearchCalculation)
+Do iSearchList.$linemax.$assign(50)
+For lNum from 1 to iSearchList.$linemax step 1
+	Do iSearchList.$add()
+End For
+
+Set reference iSearchRef to pLibRef.$searches.[iSearchName]
+
+Do method readClass
+Do method getComparisonIndex (iComparison)     ;; set radio button
+Calculate iOldComparison as iComparison
+Do method saveLastData     ;; save the current contents of the first line

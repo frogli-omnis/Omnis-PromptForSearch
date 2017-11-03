@@ -1,0 +1,2 @@
+Do iSearchList.$line.$assign(iSearchList.$line+1)
+Do method getLineValues

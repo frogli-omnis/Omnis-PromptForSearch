@@ -1,0 +1,27 @@
+;  get the text value of the selected radio button
+Switch pComparison
+	Case 0
+		Calculate pComparisonValue as '>='
+		Break to end of switch
+	Case 1
+		Calculate pComparisonValue as '<='
+		Break to end of switch
+	Case 2
+		Calculate pComparisonValue as '<>'
+		Break to end of switch
+	Case 3
+		Calculate pComparisonValue as '='
+		Break to end of switch
+	Case 4
+		Calculate pComparisonValue as 'CON'
+		Break to end of switch
+	Case 5
+		Calculate pComparisonValue as 'BEG'
+		Break to end of switch
+	Case 6
+		Calculate pComparisonValue as 'NULL'
+		Break to end of switch
+	Case 7
+		Calculate pComparisonValue as 'NNULL'
+		Break to end of switch
+End Switch

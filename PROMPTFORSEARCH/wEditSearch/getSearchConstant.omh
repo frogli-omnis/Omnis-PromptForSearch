@@ -1,0 +1,28 @@
+Switch pCharValue
+	Case '>='
+		Calculate lConstant as kSLgte
+	Case '<='
+		Calculate lConstant as kSLlte
+	Case '<>'
+		Calculate lConstant as kSLneq
+	Case '='
+		Calculate lConstant as kSLeq
+	Case 'CON'
+		Calculate lConstant as kSLcon
+	Case 'BEG'
+		Calculate lConstant as kSLbeg
+	Case 'NULL'
+		Calculate lConstant as kSLnull
+	Case 'NNULL'
+		Calculate lConstant as kSLnotnull
+	Case 'AND'
+		Calculate lConstant as kSLand
+	Case 'OR'
+		Calculate lConstant as kSLor
+	Case 'CAL'
+		Calculate lConstant as kSLcalc
+	Default
+		Calculate lConstant as kSLnone
+End Switch
+
+Quit method lConstant

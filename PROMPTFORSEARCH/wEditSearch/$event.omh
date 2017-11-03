@@ -1,0 +1,11 @@
+On evCloseBox
+	If iClassChanged
+		Yes/No message OMNIS Studio (Icon,Cancel button) {Do you wish to save the changes to this search class?}
+		If not(msgcancelled())
+			If flag true
+				Do method saveClassData
+			End If
+		Else
+			Quit event handler (Discard event)
+		End If
+	End If

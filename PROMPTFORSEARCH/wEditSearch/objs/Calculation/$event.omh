@@ -1,0 +1,14 @@
+On evClick     ;; Event Parameters - pRow ( Itemreference )
+	Do method setDisplay (iMode)
+	
+	Do iSearchList.$loadcols()
+	Calculate lValue as iLastAction.C3
+	Do method saveLastData
+	
+	Calculate iOldMode as iMode
+	
+	Do iSearchList.$assigncols('','CAL',lValue)
+	Do iSearchList.$loadcols()
+	Do $cwind.$redraw()
+	
+	Calculate iClassChanged as kTrue

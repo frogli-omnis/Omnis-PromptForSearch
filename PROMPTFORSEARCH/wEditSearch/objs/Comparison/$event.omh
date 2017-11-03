@@ -1,0 +1,17 @@
+On evClick     ;; Event Parameters - pRow ( Itemreference )
+	Do method setDisplay (iMode)
+	
+	Do iSearchList.$loadcols()
+	Calculate lNewSearchField as iLastAction.C1
+	Calculate lValue as iLastAction.C3
+	Do method saveLastData
+	
+	Calculate iOldMode as iMode
+	
+	Do method getComparisonValue (iComparison,lCurComparison)
+	
+	Do iSearchList.$assigncols(lNewSearchField,lCurComparison,lValue)
+	Do iSearchList.$loadcols()
+	Do $cwind.$redraw()
+	
+	Calculate iClassChanged as kTrue

@@ -1,0 +1,17 @@
+;  save the class data
+Set reference lSearchObjRef to iSearchRef.$objs.$first()
+
+;  remove existing objs
+For lNum from 1 to iSearchRef.$objs.$count() step 1
+	Do iSearchRef.$objs.$remove(lSearchObjRef) Returns #F
+End For
+
+Do method findLastLine Returns lLastLine
+
+;  create new objs
+For lNum from 1 to lLastLine step 1
+	Do iSearchList.$line.$assign(lNum)
+	Do iSearchList.$loadcols()
+	Do method getSearchConstant (iSearchMode) Returns lConstant
+	Do iSearchRef.$objs.$add(lConstant,iSearchFieldName,iSearchCalculation) Returns #F
+End For

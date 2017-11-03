@@ -1,0 +1,26 @@
+[
+	{
+		"name": "Prompt",
+		"ident": 0,
+		"order": 2,
+		"pvardefs": [
+			{
+				"name": "pLibRef",
+				"order": 1,
+				"type": "kItemref",
+				"subtype": "",
+				"sublen": 0,
+				"param": 1
+			}
+		],
+		"lvardefs": [
+			{
+				"name": "lSearchClass",
+				"order": 3,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000
+			}
+		]
+	}
+]

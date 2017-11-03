@@ -1,0 +1,11 @@
+On evBefore     ;; Event Parameters - pRow ( Itemreference )
+	Calculate iOldCalculation as iSearchCalculation
+	
+On evAfter     ;; Event Parameters - pClickedField, pClickedWindow, pMenuLine, pCommandNumber, pRow
+	Do iSearchList.$assigncols(,,iSearchCalculation)
+	Redraw (Refresh now) {SearchComponents}
+	
+	Calculate iLastAction as row(iSearchFieldName,iMode,iOldCalculation,iComparison)     ;; save new values
+	Calculate iNewLine as kFalse
+	
+	Calculate iClassChanged as kTrue

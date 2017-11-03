@@ -1,0 +1,22 @@
+Do iSearchList.$loadcols()
+
+If iSearchMode='AND'
+	Calculate iOldMode as 2
+Else If iSearchMode='OR'
+	Calculate iOldMode as 3
+Else If iSearchMode='CAL'     ;; calculation
+	Calculate iOldMode as 1
+Else     ;; comparison
+	Calculate iOldMode as 0
+	Do method getComparisonIndex (iOldComparison)
+End If
+
+;  set radio buttons
+Calculate iMode as iOldMode
+Calculate iComparison as iOldComparison
+
+Do method setDisplay (iMode)
+Calculate iLastAction as row(iSearchFieldName,iMode,iSearchCalculation,iComparison)     ;; save new values
+
+Calculate iNewLine as kTrue
+Do $cwind.$redraw()
