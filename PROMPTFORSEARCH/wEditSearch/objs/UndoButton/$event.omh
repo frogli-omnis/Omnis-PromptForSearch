@@ -1,0 +1,28 @@
+On evClick     ;; Event Parameters - pRow( Itemreference )
+	Do iSearchList.$loadcols()
+	
+	If not(iNewLine)     ;; no changes when user clicks on new list line
+		Calculate lTempLastAction as row(iSearchFieldName,iMode,iSearchCalculation,iComparison)
+		
+		;  restore values
+		Do method getComparisonValue (iLastAction.C4,lComparisonValue)
+		Calculate iMode as iLastAction.C2
+		Calculate iComparison as iLastAction.C4
+		If iMode=3
+			Do iSearchList.$assigncols(iLastAction.C1,'OR',iLastAction.C3)
+		Else If iMode=2
+			Do iSearchList.$assigncols(iLastAction.C1,'AND',iLastAction.C3)
+		Else If iMode=1
+			Do iSearchList.$assigncols(iLastAction.C1,'CAL',iLastAction.C3)
+		Else
+			Do iSearchList.$assigncols(iLastAction.C1,lComparisonValue,iLastAction.C3)
+		End If
+		Do method setDisplay (iMode)
+		Do iSearchList.$loadcols()
+		Do $cwind.$redraw()
+		
+		;  save away the data again in case undo button hit again
+		Calculate iOldMode as iLastAction.C2
+		Calculate iOldComparison as iLastAction.C4
+		Calculate iLastAction as lTempLastAction
+	End If

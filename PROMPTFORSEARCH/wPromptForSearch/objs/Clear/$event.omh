@@ -1,0 +1,4 @@
+On evClick     ;; Event Parameters - pRow( Itemreference )
+	Set search name      ;; clear the current search
+	Do iSearchList.$search(iSearchClass='')
+	Redraw (Refresh now) {SearchList}

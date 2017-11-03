@@ -1,0 +1,8 @@
+Set reference iLibRef to pLibRef
+Do method makeList
+Do iSearchList.$search(iSearchClass=sys(81))     ;; find the current search class, so it is hilighted
+
+Enter data  until iEnterDataComplete
+
+Calculate pSearchClass as iSearchClass     ;; return selected class
+Do $cwind.$close()

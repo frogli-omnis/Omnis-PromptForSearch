@@ -1,0 +1,18 @@
+On evClick     ;; Event Parameters - pRow( Itemreference )
+	If iSearchList.$line>0     ;; current line exists
+		Do iSearchList.$loadcols()
+		If not(pos(con(iSearchLibName,'.'),iSearchClass))     ;; see if lib name is part of class name
+			Set search name [con(iSearchLibName,'.',iSearchClass)]     ;; class is in calling library
+		Else
+			Set search name [iSearchClass]     ;; class is marked $external in another lib
+		End If
+	Else
+		Do iSearchList.$first(kTrue)     ;; may have created new search without having a current line
+		If iSearchList.$line>0
+			Do iSearchList.$loadcols()
+			Set search name [con(iSearchLibName,'.',iSearchClass)]     ;; class must be in our calling library
+		Else
+			Set search name      ;; clear current search
+		End If
+	End If
+	Calculate iEnterDataComplete as kTrue

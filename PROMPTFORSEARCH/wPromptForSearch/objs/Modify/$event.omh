@@ -1,0 +1,5 @@
+On evClick     ;; Event Parameters - pRow( Itemreference )
+	If iSearchList.$line>0
+		Do iSearchList.$loadcols()
+		Do $windows.wEditSearch.$openonce('*',kWindowCenter,iLibRef,iSearchClass)
+	End If

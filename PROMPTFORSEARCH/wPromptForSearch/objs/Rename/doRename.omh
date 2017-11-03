@@ -1,0 +1,11 @@
+Do iSearchList.$loadcols()
+Do iLibRef.$searches.[iSearchClass].$name.$assign(pNewName) Returns lFlag
+
+If lFlag
+	Do iSearchList.$assigncols(pNewName,,)
+	Redraw (Refresh now) {SearchList}
+Else
+	OK message Rename Search Class (Icon,Sound bell) {[con("Unable to rename search class to ",pNewName)]}
+End If
+
+Quit method lFlag

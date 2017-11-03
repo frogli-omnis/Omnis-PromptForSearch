@@ -1,0 +1,19 @@
+Do lClassList.$define(lClassRef,lClassExt,lClassDesc,lClassLibName)
+
+Set reference lRef to $libs.$first     ;; look at all open libs
+While lRef
+	If not(lRef.$lib().$name=iLibRef.$name)     ;; do not look at the calling libs search classes again as we already have them
+		Do lRef.$searches.$appendlist(lClassList,$ref,$ref.$external,$ref.$desc,$ref.$lib().$name)
+	End If
+	Set reference lRef to $libs.$next(lRef)
+End While
+
+Do lClassList.$search(lClassExt=kTrue)     ;; find the classes marked as external
+
+For lNum from 1 to lClassList.$linecount step 1     ;; add the external classes to the search class list
+	If lClassList.[lNum].$selected
+		Do lClassList.$line.$assign(lNum)
+		Do lClassList.$loadcols()
+		Do iSearchList.$add(con(lClassRef.$lib().$name,'.',lClassRef.$name),lClassDesc,lClassLibName)
+	End If
+End For

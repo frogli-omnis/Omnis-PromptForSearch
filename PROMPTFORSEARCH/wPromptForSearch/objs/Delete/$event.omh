@@ -1,0 +1,12 @@
+On evClick     ;; Event Parameters - pRow( Itemreference )
+	If iSearchList.$line>0
+		Do iSearchList.$loadcols()
+		
+		No/Yes message Delete Search Class (Icon) {[con("Are you sure you wish to delete the class ",iSearchClass)]}
+		
+		If flag true
+			Do iLibRef.$searches.$remove(iLibRef.$searches.[iSearchClass]) Returns #F
+			Do iSearchList.$remove(iSearchList.$line)
+			Redraw (Refresh now) {SearchList}
+		End If
+	End If

@@ -1,0 +1,12 @@
+On evClick     ;; Event Parameters - pRow( Itemreference )
+	If iSearchList.$line>0
+		Do iSearchList.$loadcols()
+		While not(lFlag)
+			Prompt for input Enter the new name for this search class: /Rename Search Class Returns iSearchClass (Cancel button,Prompt above entry)
+			If flag true
+				Do method doRename (iSearchClass) Returns lFlag
+			Else
+				Break to end of loop     ;; cancel button hit
+			End If
+		End While
+	End If

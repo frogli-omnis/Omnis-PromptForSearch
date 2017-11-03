@@ -1,0 +1,13 @@
+On evClick     ;; Event Parameters - pRow( Itemreference )
+	While not(lFlag)
+		Prompt for input Name/Create New Search Class Returns lSearchName (Cancel button)
+		If flag true
+			Do method addClass (lSearchName) Returns lSearchRef
+			If lSearchRef
+				Calculate lFlag as kTrue
+				Do $windows.wEditSearch.$openonce('*',kWindowCenter,iLibRef,lSearchName)
+			End If
+		Else
+			Break to end of loop     ;; cancel button hit
+		End If
+	End While

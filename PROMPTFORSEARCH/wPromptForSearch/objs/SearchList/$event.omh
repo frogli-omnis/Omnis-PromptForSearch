@@ -1,0 +1,42 @@
+On evClick     ;; Event Parameters - pRow ( Itemreference )
+	
+On evDoubleClick     ;; Event Parameters - pRow ( Itemreference )
+	Do iSearchList.$search(iSearchClass='')
+	Do pRow.$selected.$assign(kTrue)
+	
+	Do iSearchList.$loadcols()
+	
+	If not(pos(con(iSearchLibName,'.'),iSearchClass))
+		Set search name [con(iSearchLibName,'.',iSearchClass)]
+	Else
+		Set search name [iSearchClass]     ;; searches outside of calling lib already have lib name prefixed to search name
+	End If
+	
+	Calculate iEnterDataComplete as kTrue
+	
+On evHeadedListEditFinishing
+	If pColumnNumber=1     ;; editting search name
+		Do iLibRef.$searches.[iSearchList.[pLineNumber].iSearchClass].$name.$assign(pNewText) Returns lFlag
+		If lFlag
+			Do iSearchList.[pLineNumber].$assigncols(pNewText)     ;; update the list display
+			Redraw (Refresh now) {SearchList}
+		Else
+			Quit event handler (Pass to next handler)     ;; discard the changed name since it was invalid
+		End If
+	End If
+	
+	If pColumnNumber=2
+		Do iLibRef.$searches.[iSearchList.[pLineNumber].iSearchClass].$desc.$assign(pNewText) Returns lFlag
+		Do iSearchList.[pLineNumber].$assigncols(,pNewText)
+		Redraw (Refresh now) {SearchList}
+	End If
+	
+On evHeaderClick
+	If pColumnNumber=1
+		Calculate iCol1SortOrder as not(iCol1SortOrder)
+		Do iSearchList.$sort(iSearchClass,iCol1SortOrder)
+	Else
+		Calculate iCol2SortOrder as not(iCol2SortOrder)
+		Do iSearchList.$sort(iSearchDesc,iCol2SortOrder)
+	End If
+	Redraw (Refresh now) {SearchList}

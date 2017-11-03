@@ -1,0 +1,2 @@
+Do iLibRef.$searches.$makelist($ref.$name,$ref.$desc,$ref.$lib().$name) Returns iSearchList
+Do iSearchList.$redefine(iSearchClass,iSearchDesc,iSearchLibName)

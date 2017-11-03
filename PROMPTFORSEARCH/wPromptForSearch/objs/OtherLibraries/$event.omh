@@ -1,0 +1,10 @@
+On evClick     ;; Event Parameters - pRow ( Itemreference )
+	If iShowOtherLibs
+		Do method makeList
+		Do method makeListIgnoreExternal
+	Else
+		Do method makeList
+	End If
+	
+	Do iSearchList.$search(iSearchClass=sys(81))     ;; redundant really, because sys(81) does not return the library name
+	Redraw (Refresh now) {SearchList}

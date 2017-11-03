@@ -1,0 +1,4 @@
+On evClick     ;; Event Parameters - pRow ( Itemreference )
+	Do method getLineValues
+	
+On evDoubleClick     ;; Event Parameters - pRow ( Itemreference )

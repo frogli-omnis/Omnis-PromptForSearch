@@ -1,0 +1,14 @@
+Do iLibRef.$searches.$add(pSearchName) Returns lSearchRef
+
+If lSearchRef
+	Do iSearchList.$search(iSearchClass='')     ;; clear the previous selected line
+	Do iSearchList.$add(lSearchRef.$name,'',lSearchRef.$lib().$name) Returns #F
+	Do iSearchList.[iSearchList.$linecount].$selected.$assign(kTrue)
+	
+	Set search name lSearchRef     ;; make it the default search
+	Redraw (Refresh now) {SearchList}
+Else
+	OK message Create Search Class (Icon,Sound bell) {[con("Unable to create search class ",pSearchName)]}
+End If
+
+Quit method lSearchRef
