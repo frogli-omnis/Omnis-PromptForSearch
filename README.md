@@ -2,7 +2,7 @@
 
 Library to enable users to select a search class.
 
-Originally published as an Omnis technote see [http://www.omnis.net/technotes/tngi0006.jsp](http://www.omnis.net/technotes/tngi0006.jsp "Omnis Studio Prompt For Search Class")
+Originally published as an Omnis technote see  [Omnis Studio Prompt For Search Class](https://www.omnis.net/developers/resources/technotes/tngi0006.jsp "Omnis Studio Prompt For Search Class")
 
 Requires Omnis Studio 8.1.2 or above.
 
